@@ -1,21 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Message from './Message';
 
-function App() {
-  let var1: [string, number] = ["Hello", 124] 
-  
+
+const App: React.FC = () => 
+{
+   const [userName, setUserName] = useState<string>('User');
+   const [userMessage, setUserMessage] = useState<string>('This is the initial message');
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          The variable {var1} is of the type {typeof(var1)} data type.
-        </p>
-       
-      </header>
-    </div>
-  );
+    <>
+      <h1>Typescript is cool</h1>
+      <div>
+         <Message name={userName} message={userMessage} ></Message>
+      </div>
+    </>
+  )
 }
 
 export default App;
