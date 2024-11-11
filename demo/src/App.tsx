@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Message from './Message';
-
+import { UserContext } from './UserContext';
 
 const App: React.FC = () => 
 {
@@ -16,6 +16,8 @@ const App: React.FC = () =>
 
     const timerId = setTimeout(() => {
       setTimeLeft(timeLeft - 1);
+      setUserName('Manny');
+      setUserMessage("Message updated after 5 sec");
     }, 1000);
 
     return () => clearTimeout(timerId);
@@ -26,10 +28,10 @@ const App: React.FC = () =>
   return (
     <>
       <h1>Typescript is cool</h1>
-      <div>
-         <Message name={userName} message={userMessage} ></Message>
+      <UserContext.Provider value={ {name: userName, message: userMessage}}>
+         <Message></Message>
          <h4>Countdown: {timeLeft}</h4>
-      </div>
+      </UserContext.Provider>
     </>
   )
 }

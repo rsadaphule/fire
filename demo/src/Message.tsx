@@ -1,13 +1,20 @@
-import React from "react";
-interface UserMessage {
-    name: string
-    message: string
-}
+import React, { useContext } from "react";
+import { UserContext } from "./UserContext";
 
-const Message: React.FC<UserMessage> = ({name, message}) => {
+
+
+const Message: React.FC = () => {
+    const context = useContext(UserContext);
+
+    if(!context)
+    {
+            throw new Error('User context must be used within UserProvider');
+    }
+    
+    
     return (
                 <> 
-                {name}, {message}
+                {context.name}, {context.message}
                 </>
 
     )
