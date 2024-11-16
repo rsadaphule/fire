@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Command: npx create-react-app@latest demo --template typescript
+
+
+# Adding bootstrap support
+npm install react-bootstrap@latest bootstrap@latest
+
+
 ## Available Scripts
 
 In the project directory, you can run:

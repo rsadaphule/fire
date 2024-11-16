@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Message from './Message';
 import { UserContext } from './UserContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+
 
 const App: React.FC = () => 
 {
@@ -27,10 +30,11 @@ const App: React.FC = () =>
  
   return (
     <>
-      <h1>Typescript is cool</h1>
       <UserContext.Provider value={ {name: userName, message: userMessage}}>
+         <Header></Header>
          <Message></Message>
          <h4>Countdown: {timeLeft}</h4>
+         
       </UserContext.Provider>
     </>
   )
